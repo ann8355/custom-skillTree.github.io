@@ -1,0 +1,313 @@
+$primary-color:#2D0E2F;
+$sub-color:#17040F;
+$primary-txt:white;
+$tool-bg:#275596;
+$tool-active:#0093FF;
+$scroll-color:#FFB297;
+
+%center{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+%tool{
+  width: 104px;
+  height: 104px;
+  border-radius: 52px;
+  margin-bottom: 2em;
+  justify-content: center;
+  position: relative;
+}
+.ui-dialog,.ui-dialog-buttonpane{
+  background-color: lighten(purple,70%);
+  button{
+    &:active{
+      background-color: #ededed;
+    }
+  }
+}
+.ui-widget-header{
+  background-color: lighten($primary-color,65%);
+}
+.ui-widget{
+  font-size: 1.5em;
+}
+fieldset { 
+  padding:0; 
+  border:0; 
+  input{
+    margin-top: 0.3em;
+    margin-bottom:0.8em; 
+    width: 95%;
+    padding: .4em;
+  }
+}
+#dialog-form{
+  height: auto;
+}
+.ui-dialog .ui-dialog-content{
+  padding: 1em;
+}
+.ui-dialog .ui-dialog-buttonpane{
+  margin-top: 0;
+  padding: .3em 1em;
+  button:nth-child(1){
+    background-color: invert($primary-color);//對比色
+    &:hover{
+      background-color: invert(lighten($primary-color,8%));
+    }
+  }
+}
+body{
+  display: flex;
+  position: relative;
+  font-family: "Yuanti TC",sans-serif,'FontAwesome';
+  color: $primary-txt;
+  overflow-x: hidden;
+  background-color: $primary-color; 
+}
+h1{
+  font-size: 4em;
+}
+h2{
+  font-size: 2.5em;
+}
+.wrap{
+  height: 1780px;
+  width: 80vw;
+  margin-left: 20vw;
+}
+#draw{
+  width: 100%;
+}
+.dragPlace{
+  @extend %center;
+  @extend %tool;
+  border: 6px dashed #5C5C5C;
+  margin-left: 4.5em;
+}
+.tool{
+      @extend %center;
+      background-color: $tool-bg;
+      border: 12px solid #5C5C5C;
+      @extend %tool;
+      &:hover{
+        border: 12px solid darken($primary-txt,15%);
+        cursor:pointer;
+        background-color: lighten($tool-bg,10%);
+      }
+      img:hover{
+        transform: scale(1.2,1.2);
+      }
+}
+#drawArea input{
+    border-style: none;
+    outline-style:none;
+    background-color:transparent;
+    width: 100%; 
+    text-align: center;
+    font-size: 4em;
+    font-family: "Yuanti TC",sans-serif,'FontAwesome';
+    color: $primary-txt;
+    font-weight: bold;
+    margin: 0.6em auto;
+}
+.arrow{
+  margin-left: 4.5em;
+  &:before{
+    content: "\f178";
+    position: absolute;
+    right: 110px;
+    font-size: 5em;
+  }
+}
+.skillblock{
+  width: 20vw;
+  background-color: $sub-color;
+  @extend %center;
+  position: absolute;
+  #toolblock{
+    margin-top: 1em;
+    z-index: 100;
+  }
+}
+.show{
+  opacity:0;
+  animation-name: show;
+  animation-fill-mode:forwards;
+  animation-duration: 800ms;
+}
+.move{
+  animation-name: move;
+  animation-duration: 500ms;
+}
+.toolActive{
+  background-color: darken($tool-active,5%);
+  border-color: lighten($tool-active,30%);//#84DBFF
+  &:hover{
+    background-color: $tool-active;
+    border-color: $primary-txt;
+  }
+  &:after{
+        content: attr(name);
+        font-size: 2.5em;
+        position: absolute;
+        bottom: -60%;
+        color: black;
+        font-weight: bold;
+  }
+}
+@keyframes move{
+  0%{
+    left:-20%;
+  }
+  100%{
+    left: 0;
+  }
+}
+@keyframes show{
+  100%{
+    opacity: 1;
+  }
+}
+#menu{
+  position: absolute;
+  left: 0.3em;
+  font-size: 2.5em;
+  top: 1.3em;
+  cursor:pointer;
+  user-select: none;
+}
+.drawblock{
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: $primary-color; 
+  @extend %center;
+  padding: 0 4em;
+}
+footer{
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://drive.google.com/uc?id=1obACMDUdMwoWmZEbCcXwYZZ-XabASBn6");
+  background-position: center center;
+  background-size: cover;
+  position: absolute;
+  bottom: 0;
+  #carton{
+    position: absolute;
+    bottom: 40%;
+    left: 3vw;
+    width: 200px;
+  }
+  #rocket{
+    width: 135px;
+    position: absolute;
+    right: 15vw;
+    bottom: 12vh;
+  }
+  #btnGroup{
+    position: absolute;
+    left: 30%;
+    top: 45%;
+  }
+}
+img{
+  user-select: none;
+}
+.warning {
+    background-color: orange!important;
+    border-color: orange;
+    color: $primary-txt!important;
+    &:hover{
+      background-color: darken(orange,5%)!important;
+    }
+}
+.danger {
+    background-color: #dc3545!important;
+    border-color: #dc3545;
+    color: $primary-txt!important;
+    &:hover{
+      background-color: darken(#dc3545,5%)!important;
+    }
+}
+.info {
+    background-color: #17a2b8!important;
+    border-color: #17a2b8;
+    color: $primary-txt!important;
+    &:hover{
+      background-color: darken(#17a2b8,5%)!important;
+    }
+}
+i{
+  margin-right: 0.3em;
+}
+.typeBlock{
+  display: flex;
+  align-items: center;
+  height: 220px;
+  width: 100%;
+  // background-color:  hsl(random(360),25%,80%) ;//隨機產生顏色
+  border-radius:1em;
+  // margin-bottom:2em;
+  .scroll{
+    border-radius:0 1em 1em 0;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    height: 100%;
+    width: 100%;
+    padding: 0 1.5em;
+  }
+  &:before{
+    content: attr(name);
+    color: #42272C;
+    font-weight: bold;
+    font-size: 3em;
+    margin: 0 0.6em;
+  }
+}
+.small{
+  transform: scale(0.5,0.5);
+}
+.complete{
+  opacity: 0.35!important;
+}
+#trash{
+  cursor:move;
+}
+::-webkit-scrollbar {
+		  width: 15px;//垂直軸
+      height: 13px;//水平軸
+	} 
+::-webkit-scrollbar-track {//滑轨背景颜色
+		  background-color: white;
+      border: 2px solid $scroll-color;
+	} 
+::-webkit-scrollbar-thumb,::-webkit-scrollbar-button {//滑块颜色
+		  background-color: $scroll-color;
+} 
+::-webkit-scrollbar-button:vertical:decrement{
+	background-image: url("https://www.iconsdb.com/icons/preview/white/arrow-155-xxl.png") ;
+	background-position: center center;
+  background-size: contain;
+}
+::-webkit-scrollbar-button:vertical:increment{
+	background-image: url("https://www.iconsdb.com/icons/preview/white/arrow-216-xxl.png") ;
+	background-position: center center;
+  background-size: contain;
+}
+::-webkit-scrollbar-button:horizontal:decrement{
+	background-image: url("https://www.iconsdb.com/icons/preview/white/arrow-102-xxl.png") ;
+	background-position: center center;
+  background-size: contain;
+}
+::-webkit-scrollbar-button:horizontal:increment{
+	background-image: url("https://www.iconsdb.com/icons/preview/white/arrow-37-xxl.png") ;
+	background-position: center center;
+  background-size: contain;
+}
+::-webkit-scrollbar-corner {//相交处尖角的颜色
+		  background-color: $scroll-color;
+} 

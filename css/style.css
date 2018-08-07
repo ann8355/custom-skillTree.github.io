@@ -1,0 +1,364 @@
+.dragPlace, .tool, .skillblock, .drawblock {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dragPlace, .tool {
+  width: 104px;
+  height: 104px;
+  border-radius: 52px;
+  margin-bottom: 2em;
+  justify-content: center;
+  position: relative;
+}
+
+.ui-dialog, .ui-dialog-buttonpane {
+  background-color: #ffe6ff;
+}
+.ui-dialog button:active, .ui-dialog-buttonpane button:active {
+  background-color: #ededed;
+}
+
+.ui-widget-header {
+  background-color: #e0a4e4;
+}
+
+.ui-widget {
+  font-size: 1.5em;
+}
+
+fieldset {
+  padding: 0;
+  border: 0;
+}
+fieldset input {
+  margin-top: 0.3em;
+  margin-bottom: 0.8em;
+  width: 95%;
+  padding: .4em;
+}
+
+#dialog-form {
+  height: auto;
+}
+
+.ui-dialog .ui-dialog-content {
+  padding: 1em;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+  margin-top: 0;
+  padding: .3em 1em;
+}
+.ui-dialog .ui-dialog-buttonpane button:nth-child(1) {
+  background-color: #d2f1d0;
+}
+.ui-dialog .ui-dialog-buttonpane button:nth-child(1):hover {
+  background-color: #b4e8b1;
+}
+
+body {
+  display: flex;
+  position: relative;
+  font-family: "Yuanti TC",sans-serif,'FontAwesome';
+  color: white;
+  overflow-x: hidden;
+  background-color: #2D0E2F;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+.wrap {
+  height: 1780px;
+  width: 80vw;
+  margin-left: 20vw;
+}
+
+#draw {
+  width: 100%;
+}
+
+.dragPlace {
+  border: 6px dashed #5C5C5C;
+  margin-left: 4.5em;
+}
+
+.tool {
+  background-color: #275596;
+  border: 12px solid #5C5C5C;
+}
+.tool:hover {
+  border: 12px solid #d9d9d9;
+  cursor: pointer;
+  background-color: #326cbe;
+}
+.tool img:hover {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
+#drawArea input {
+  border-style: none;
+  outline-style: none;
+  background-color: transparent;
+  width: 100%;
+  text-align: center;
+  font-size: 4em;
+  font-family: "Yuanti TC",sans-serif,'FontAwesome';
+  color: white;
+  font-weight: bold;
+  margin: 0.6em auto;
+}
+
+.arrow {
+  margin-left: 4.5em;
+}
+.arrow:before {
+  content: "\f178";
+  position: absolute;
+  right: 110px;
+  font-size: 5em;
+}
+
+.skillblock {
+  width: 20vw;
+  background-color: #17040F;
+  position: absolute;
+}
+.skillblock #toolblock {
+  margin-top: 1em;
+  z-index: 100;
+}
+
+.show {
+  opacity: 0;
+  -webkit-animation-name: show;
+          animation-name: show;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+}
+
+.move {
+  -webkit-animation-name: move;
+          animation-name: move;
+  -webkit-animation-duration: 500ms;
+          animation-duration: 500ms;
+}
+
+.toolActive {
+  background-color: #0084e6;
+  border-color: #99d4ff;
+}
+.toolActive:hover {
+  background-color: #0093FF;
+  border-color: white;
+}
+.toolActive:after {
+  content: attr(name);
+  font-size: 2.5em;
+  position: absolute;
+  bottom: -60%;
+  color: black;
+  font-weight: bold;
+}
+
+@-webkit-keyframes move {
+  0% {
+    left: -20%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes move {
+  0% {
+    left: -20%;
+  }
+  100% {
+    left: 0;
+  }
+}
+@-webkit-keyframes show {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes show {
+  100% {
+    opacity: 1;
+  }
+}
+#menu {
+  position: absolute;
+  left: 0.3em;
+  font-size: 2.5em;
+  top: 1.3em;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.drawblock {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: #2D0E2F;
+  padding: 0 4em;
+}
+
+footer {
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://drive.google.com/uc?id=1obACMDUdMwoWmZEbCcXwYZZ-XabASBn6");
+  background-position: center center;
+  background-size: cover;
+  position: absolute;
+  bottom: 0;
+}
+footer #carton {
+  position: absolute;
+  bottom: 40%;
+  left: 3vw;
+  width: 200px;
+}
+footer #rocket {
+  width: 135px;
+  position: absolute;
+  right: 15vw;
+  bottom: 12vh;
+}
+footer #btnGroup {
+  position: absolute;
+  left: 30%;
+  top: 45%;
+}
+
+img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.warning {
+  background-color: orange !important;
+  border-color: orange;
+  color: white !important;
+}
+.warning:hover {
+  background-color: #e69500 !important;
+}
+
+.danger {
+  background-color: #dc3545 !important;
+  border-color: #dc3545;
+  color: white !important;
+}
+.danger:hover {
+  background-color: #d32535 !important;
+}
+
+.info {
+  background-color: #17a2b8 !important;
+  border-color: #17a2b8;
+  color: white !important;
+}
+.info:hover {
+  background-color: #148ea1 !important;
+}
+
+i {
+  margin-right: 0.3em;
+}
+
+.typeBlock {
+  display: flex;
+  align-items: center;
+  height: 220px;
+  width: 100%;
+  border-radius: 1em;
+}
+.typeBlock .scroll {
+  border-radius: 0 1em 1em 0;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  height: 100%;
+  width: 100%;
+  padding: 0 1.5em;
+}
+.typeBlock:before {
+  content: attr(name);
+  color: #42272C;
+  font-weight: bold;
+  font-size: 3em;
+  margin: 0 0.6em;
+}
+
+.small {
+  -webkit-transform: scale(0.5, 0.5);
+          transform: scale(0.5, 0.5);
+}
+
+.complete {
+  opacity: 0.35 !important;
+}
+
+#trash {
+  cursor: move;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  height: 13px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: white;
+  border: 2px solid #FFB297;
+}
+
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-button {
+  background-color: #FFB297;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url("https://www.iconsdb.com/icons/preview/white/arrow-155-xxl.png");
+  background-position: center center;
+  background-size: contain;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url("https://www.iconsdb.com/icons/preview/white/arrow-216-xxl.png");
+  background-position: center center;
+  background-size: contain;
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url("https://www.iconsdb.com/icons/preview/white/arrow-102-xxl.png");
+  background-position: center center;
+  background-size: contain;
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url("https://www.iconsdb.com/icons/preview/white/arrow-37-xxl.png");
+  background-position: center center;
+  background-size: contain;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #FFB297;
+}

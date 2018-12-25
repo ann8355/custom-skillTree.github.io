@@ -13,7 +13,12 @@
 2. var text = DateUtil.dateToStrSet(new Date(), "-", ":", DateShiftSetting.formatYMDHN());
 ```
 ```
-3. var before = DateUtil.shift($('#time'),shiftSettingOption);參考範例二
+3. $('#time')輸入框增加十分鐘變成$('#tenTime')的值
+var shiftSettingOption = DateShiftSetting.genSettingOption();
+shiftSettingOption.type = DateShiftSetting.getMinute();
+shiftSettingOption.num = 10;
+var before = DateUtil.shift($('#time'),shiftSettingOption);//shift($(欄位名稱), 設定參數物件)
+$('#tenTime').val(before);
 ```
 ```
 4. var date = DateUtil.dateAdd(DateShiftSetting.getMinute(),5,new Date());現在時間增加五分鐘

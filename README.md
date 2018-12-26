@@ -23,3 +23,22 @@ $('#tenTime').val(before);
 ```
 4. var date = DateUtil.dateAdd(DateShiftSetting.getMinute(),5,new Date());現在時間增加五分鐘
 ```
+# $.datetimeShift的使用方法
+```
+$.datetimeShift($so, $eo, settingOption)
+//$so = $(開始時間的欄位id)
+//$eo = $(結束時間的欄位id)
+//settingOption = DateShiftSetting.genSettingOption(); 產生日期設定物件
+```
+## 日期設定物件的屬性說明
+![](https://i.imgur.com/tDRQlEF.png)
+### Example
+```
+時間格式為yyyy/mm/dd,結束時間為現在時間,開始時間為結束時間往前一日
+
+var shiftSettingOption = DateShiftSetting.genSettingOption();
+shiftSettingOption.format = DateShiftSetting.formatYMD();
+shiftSettingOption.ymdSign = "/";
+shiftSettingOption.type = DateShiftSetting.getDay();
+ymdCalendar = $.datetimeShift($('#SD_2'), $('#ED_2'), shiftSettingOption);
+```
